@@ -13,14 +13,14 @@ Parts
 Time: 16 hours a day- the time will slowly go down
 
 Random notifications number
-Instagram: 2-35 notifications and pop up twice
-Facetime: 1-2 calls and pop up twice
-iMessages 2-128 messages
-Facebook: 10-30 notifications
-SnapChat: 5-10 snaps and pop up twice
-Email: 5-60 emails
-Twitter: 4-10 notifications and pop up twice
-Slack: 3-40 notifications 
+1Instagram: 2-35 notifications and pop up twice
+2Facetime: 1-2 calls and pop up twice
+3iMessages 2-128 messages
+4Facebook: 10-30 notifications
+5SnapChat: 5-10 snaps and pop up twice
+6Email: 5-60 emails
+7Twitter: 4-10 notifications and pop up twice
+8Slack: 3-40 notifications 
 
 When Clicked
 Insta- 32 minutes 
@@ -44,49 +44,95 @@ everytime the notifications are clicked:
 
 */
 
-var currentHealth=960;
-var maxHealth = 960;
-var healthLength = 980;
 
+//---> global variables
+
+//Healthbar&Timer variables
+
+/*
+
+It will continuously count down by the second
+
+decimal point counts down by minutes
+counts by 1 second is 1 minute
+
+
+960 minutes = 16 hours in a day, as the remaining hours is to sleep
+maximum length of time at 960
+
+current time should be divided by the max time
+
+connecting the healthbar and the timer
+
+*/
+var maxHealth = 500;
+var healthLength = 500;
+
+var s = second();
+// intial timer at what seconds should it be
+// 57,600 seconds is 960
+
+
+function preload (){
+
+	bungee = loadFont('asset/fonts/Bungee-Regular.ttf');
+}
 
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	background(100);
+	background(255);
 
 }
 
 function draw() {
-	ellipse(mouseX, mouseY, 20, 20);
+
 
 
 //healthbar
+textSize (15);
+//textFont(bungee);
+text ('Time Remaining', 50,40);
 
-var healthInProcess = (currentHealth/maxHealth);
-rect(100,100,healthLength,300);
+var countDown = (s,0,500,57600,0);
+//length of the timer and the countdown by seconds
 
-if(healthInProcess =<380) {
+var healthInProcess = (countdown/maxHealth)*healthLength;
+//map out the timer into the length of the rect 
 
-	fill(0,255,0);	
 
-} 	else if (healthInProcess =<480) {
+
+
+stroke(2);
+rect(50,50,countDown,30);
+
+//how do automatically do a countdown
+
+
+if ( healthInProcess <=380)
+		
+		{
+
+			fill(0,255,0);	
+
+		} 
+	
+		else if (healthInProcess <=480)
+	
+		{
 
 	fill(100,255,0);
 
-} 
-	else { 
-	fill(0,255,0) 
+		} 
+	
+	else
+			
+		{ 
+			
+	fill(0,255,0); 
 }
 
 
-//add a healthbar
-//healthbar will move back based on the clicks on the notifications
-//max health
-
-
-
 }
-
-
 
 
