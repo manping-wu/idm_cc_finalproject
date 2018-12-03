@@ -30,9 +30,19 @@ Facebook- 32 minutes
 SnapChat- 30 minutes
 Email- 1 minute per email
 Twitter- 6 minutes
-Slack-126.72 minutes
+Slack- 126.72 minutes
+
+number of clicks to calculate the time wasted
+
+
 
 Background and surprises
+Opening---> try not to click on the notifications
+Ending --->  you could had read a book and a half (ten hours to read a 300 page book) 
+(36,000 minutes for one book) --> convert to percentage when explicit the time
+
+If they dont touch anynotifications- You sh
+
 Spectrum of feelings
 Starts netural (white-light grey)
 the longer the notifications don't touch (the black eerieness will arise)
@@ -74,15 +84,15 @@ var s = second();
 
 
 //assets loading
-var email
+var email;
 
 
 function preload (){
 
-	bungee = loadFont('asset/fonts/Bungee-Regular.ttf');
+	// bungee = loadFont('asset/fonts/Bungee-Regular.ttf');
 
 
-	email = loadAnimation ('asset/email/email_01', 'asset/email/email_20');
+	email = loadAnimation ('asset/email/email_01.png', 'asset/email/email_20.png');
 
 }
 
