@@ -1,9 +1,11 @@
 # idm cc finalproject
 
 **Pitch**
+
 The satisfaction of tapping the app's notifications becoming a time waster.
 
 **High-Level Goal**
+
 The users will be persuaded to spend less time on social media and spend more time to do something benefical like reading.
 
 **Specific Goals**
@@ -14,5 +16,6 @@ The users will be persuaded to spend less time on social media and spend more ti
 - create each social media's algorithm to decrease the time (healthbar) independently
 
 **Inspiration**
+
 *See the keynote for the links*
 
