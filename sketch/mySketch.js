@@ -73,9 +73,17 @@ var s = second();
 // 57,600 seconds is 960
 
 
+//assets loading
+var email
+
+
 function preload (){
 
 	bungee = loadFont('asset/fonts/Bungee-Regular.ttf');
+
+
+	email = loadAnimation ('asset/email/email_01', 'asset/email/email_20');
+
 }
 
 
@@ -108,6 +116,7 @@ rect(50,50,countDown,30);
 
 //how do automatically do a countdown
 
+animation (email, windowWidth/2, windowHeight/2);
 
 if ( healthInProcess <=380)
 		
