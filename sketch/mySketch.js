@@ -32,7 +32,8 @@ Email- 1 minute per email
 Twitter- 6 minutes
 Slack- 126.72 minutes
 
-number of clicks to calculate the time wasted
+number of clicks (from the notifications to add up) to calculate the time wasted
+
 
 
 
@@ -41,9 +42,10 @@ Opening---> try not to click on the notifications
 Ending --->  you could had read a book and a half (ten hours to read a 300 page book) 
 (36,000 minutes for one book) --> convert to percentage when explicit the time
 
-If they dont touch anynotifications- You sh
+If they dont touch any notifications- don't play this game, go outside or read a book
 
 Spectrum of feelings
+-drawing machine algortithm: reference to aura like perlin noise or sin/cos 
 Starts netural (white-light grey)
 the longer the notifications don't touch (the black eerieness will arise)
 everytime the notifications are clicked:
@@ -59,9 +61,8 @@ everytime the notifications are clicked:
 
 //Healthbar&Timer variables
 
-/*
 
-It will continuously count down by the second
+/*It will continuously count down by the second
 
 decimal point counts down by minutes
 counts by 1 second is 1 minute
@@ -74,84 +75,115 @@ current time should be divided by the max time
 
 connecting the healthbar and the timer
 
+intial timer at what seconds should it be
+57,600 seconds is 960
 */
-var maxHealth = 500;
-var healthLength = 500;
-
-var s = second();
-// intial timer at what seconds should it be
-// 57,600 seconds is 960
 
 
-//assets loading
+var maxHealth = 500; //max length of the timer/health bar 
+var healthLength = 500; //full length of the timer/health bar 
+var countDown; // countdown variable
+var consumedTime =0; //intial at 0
+var s ; //to map out the variable between real time countdown and the length of the timer/health bars
+
+//Notification Variable 
 var email;
-
-
-function preload (){
-
-	// bungee = loadFont('asset/fonts/Bungee-Regular.ttf');
-
-
-	email = loadAnimation ('asset/email/email_01.png', 'asset/email/email_20.png');
-
-}
+var insta;
+var snapchat;
+var facetime;
+var facebook;
+var imessage;
+var slack;
+var twitter;
 
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
-	background(255);
 
+	createCanvas(windowWidth, windowHeight); // size of the window
+	background(255); //background color
+
+
+	//arrays for the values for the notifications
+	var slide = [19, 12, 8, 6, 4, 4, 4, 3];
+	var iconX = [1200, 200, 400, 500, 900, 900, 100, 800]; 
+	var iconY = [500, 200, 400, 100, 300, 600, 500, 100];
+
+
+
+	for (var i = 0; i<slide.length[i]; i++){
+
+		email = new Notification ( slide[i],iconX[i], iconY[i])
+
+
+	}
+
+
+	constructor(iconTemp, slideTemp, iconXTemp, iconYTemp)
+
+}
+
+function mousePressed(){
+	consumedTime-=10*60
 }
 
 function draw() {
+	background(255)
 
+	healthTimer(); //health timer function added
 
-
-//healthbar
-textSize (15);
-//textFont(bungee);
-text ('Time Remaining', 50,40);
-
-var countDown = (s,0,500,57600,0);
-//length of the timer and the countdown by seconds
-
-var healthInProcess = (countdown/maxHealth)*healthLength;
-//map out the timer into the length of the rect 
-
-
-
-
-stroke(2);
-rect(50,50,countDown,30);
-
-//how do automatically do a countdown
-
-animation (email, windowWidth/2, windowHeight/2);
-
-if ( healthInProcess <=380)
-		
-		{
-
-			fill(0,255,0);	
-
-		} 
-	
-		else if (healthInProcess <=480)
-	
-		{
-
-	fill(100,255,0);
-
-		} 
-	
-	else
-			
-		{ 
-			
-	fill(0,255,0); 
-}
 
 
 }
+
+function healthTimer(){
+
+
+
+	// variable about having the time count down in real time
+	// (hour (24) subtract 10 to get to 14 hours) multiply 60 to get minutes then multiply 60 to get seconds follow by minutes and seconds
+	s= (hour()-10)*60*60+minute()*60+second();
+	
+	// if the hour is less than 0, the variable will be 0
+	if (hour()-10<0){
+		s=0
+	}
+
+	//s variable will be affected by the time consumed going down
+	s-=consumedTime
+	// s=frameCount*100
+	console.log(s)
+
+	//healthbar
+
+	//TEXT 
+	textSize (15);
+	text ('Time Remaining', 50,40);
+
+
+
+	//map out the full 57,600 seconds into the full length of the healthbar
+	var countDown = map(s,57600,0,0,500);
+
+
+	//countDown over the maxHealth multiply by the lenght of the healthbar
+	var healthInProcess = (countDown/maxHealth)*healthLength;
+
+
+
+	//the boundary of the timer 
+	stroke(2);
+	noFill();
+	rect(50,50,500,30);
+
+
+	//the inside of the timer
+	fill(0,255,0);
+	rect(50,50,countDown,30);
+
+
+
+}
+
+
 
 
