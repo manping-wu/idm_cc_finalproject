@@ -87,6 +87,7 @@ var consumedTime =0; //intial at 0
 var s ; //to map out the variable between real time countdown and the length of the timer/health bars
 
 //Notification Variable 
+var popUp;
 var email;
 var insta;
 var snapchat;
@@ -97,6 +98,54 @@ var slack;
 var twitter;
 
 
+
+
+//phrase 1
+//goal 1: figure out the alogrithm to generate notifications and when clicked on it will indepdently decrease the time
+//goal 2: how to add up the times
+//make the backgrounds for the beginning and ending
+
+//phrase 2 
+//add music 
+//add background effects
+
+
+
+
+//----->Preload Function
+function preload (){
+
+
+
+	//notification image upload
+	email = loadAnimation ('asset/email/email_01.png','email_20.png')
+	email.looping = false;
+
+	insta = loadAnimation ('asset/instagram_01.png', 'asset/instagram_013.png')
+	insta.looping = false;
+	
+	snapchat = loadAnimation ('snapchat_01.png', 'snapchat_09.png')
+	snapchat.looping = false;
+	
+	facebook = loadAnimation ('facebook_01.png', 'facebook_07.png')
+	facebook.looping = false;
+	
+	facetime = loadAnimation ('facetime_01.png', 'facetime_05.png')
+	facetime.looping = false;
+	
+	imessage = loadAnimation ('imessage_01.png', 'imessage_05.png')
+	imessage.looping = false;
+	
+	slack = loadAnimation ('slack_01.png', 'slack_05.png')
+	slack.looping = false;
+	
+	twitter = loadAnimation ('twitter_01.png', 'twitter_04.png')
+	twitter.looping = false;
+
+
+}
+
+//----->Setup Function
 function setup() {
 
 	createCanvas(windowWidth, windowHeight); // size of the window
@@ -107,25 +156,29 @@ function setup() {
 	var slide = [19, 12, 8, 6, 4, 4, 4, 3];
 	var iconX = [1200, 200, 400, 500, 900, 900, 100, 800]; 
 	var iconY = [500, 200, 400, 100, 300, 600, 500, 100];
+	var icon = [email, insta, snapchat, facebook, facetime, imessage, slack, twitter];
 
 
 
 	for (var i = 0; i<slide.length[i]; i++){
 
-		email = new Notification ( slide[i],iconX[i], iconY[i])
+		popUp = new Notification (icon[i],slide[i],iconX[i], iconY[i])
 
 
 	}
 
 
-	constructor(iconTemp, slideTemp, iconXTemp, iconYTemp)
 
 }
 
+
+//----->MousePressed Function
 function mousePressed(){
 	consumedTime-=10*60
 }
 
+
+//----->Draw Function
 function draw() {
 	background(255)
 
@@ -135,6 +188,9 @@ function draw() {
 
 }
 
+
+//----->Custom Function
+//----->Health Timer
 function healthTimer(){
 
 
@@ -146,6 +202,11 @@ function healthTimer(){
 	// if the hour is less than 0, the variable will be 0
 	if (hour()-10<0){
 		s=0
+		ending();
+		//ending display
+		//how to connect notifications class with the timer
+
+
 	}
 
 	//s variable will be affected by the time consumed going down
@@ -182,8 +243,37 @@ function healthTimer(){
 
 
 
+
+
 }
 
 
+function beginning(){
+
+	
+	background(255,195,254)
+	textSize(20)
+	text ('Try Not to Click on the Notifications', windowWidth/2, windowHeight/2)
+
+
+}
+
+function mouseClicked(){
+
+
+		beginning() == false
+	
+
+}
+
+function ending (){
+
+	var conclusion = consumedTime 'minutes could had been spent on reading books instead of social media'
+ 	background(255,195,254)
+	textSize(20)
+	text(conclusion,windowWidth/2,windowHeight/2)
+
+
+}
 
 
