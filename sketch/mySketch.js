@@ -189,8 +189,8 @@ function draw() {
 }
 
 
-//----->Custom Function
-//----->Health Timer
+//-----> Custom Function 
+//-----> Health Timer
 function healthTimer(){
 
 
