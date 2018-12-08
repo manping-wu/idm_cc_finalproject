@@ -1,4 +1,4 @@
-# idm cc finalproject
+# Social Detox: idm cc finalproject
 
 **Pitch**
 
