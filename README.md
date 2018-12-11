@@ -9,7 +9,7 @@ The satisfaction of tapping the app's notifications becoming a time waster.
 The users will be persuaded to spend less time on social media and spend more time to do something productive like reading.
 
 **Concept**
-This piece is about people's social media addiction regarding notifications. This project is both an interactive and time based piece, where users test their limits by not clicking on the notifications based on real time.It's a persuasive piece to encourage users not to rely on the notifications to gain temporary satifisation, but using their time wisely to do something productive. 
+This piece is about people's social media addiction regarding notifications. This project is both an interactive and time based piece, where users test their limits by not clicking on the notifications in real time. It's a persuasive piece to encourage users not to rely on the notifications to gain temporary satifisation, but using their time wisely to do something productive. 
 
 
 **Specific Goals**
