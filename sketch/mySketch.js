@@ -1,4 +1,3 @@
-
 //---> Concept
 
 /*
@@ -75,11 +74,6 @@ everytime the notifications are clicked:
 
 
 */
-
-
-//phrase 2 
-//add music 
-//add background effects
 
 
 //---> global variables
@@ -187,6 +181,7 @@ function setup() {
 // (labelTemp, iconTemp, slideTemp, iconXTemp, iconYTemp, unitCounsumeTemp)
 
 
+	//for looping the arrays through the class's constructor
 	for (var i = 0; i< slide.length; i++){
 
 		popUps.push( new Notification (labels[i],icon[i],slide[i],iconX[i], iconY[i], unitConsumed[i], freq[i]))
@@ -194,6 +189,7 @@ function setup() {
 
 	}
 	console.log(popUps[0])
+	//console about popups logs
 
 
 
@@ -222,17 +218,17 @@ function mousePressed(){
 		//for looping the popUps arrays with actual notifications in the corner to mousePressed on within the notification image
 		for (var i = 0; i<popUps.length; i++){
 			consumedTime+=popUps[i].handleClick();
-
+		
 		}
 	}
 	
 	if (mode==1){
-		mode=2 //switch to mode 2 when mousePressed
+		mode=2 //switch to mode 2: game when mousePressed
 	}
 
 	if (mode==3){
-		consumedTime=0
-		mode=1 //switch to mode 2 when mousePressed
+		consumedTime=0 //resume the notifications back to zero
+		mode=1 //switch to mode 1: beginning when mousePressed
 	}
 }
 
@@ -255,17 +251,10 @@ function draw() {
 		
 
 		background(255)
-		// 	getNotibyLabel('email').update()
-		// 	getNotibyLabel('insta').update()
-		// 	getNotibyLabel('snapchat').update()
-		// 	getNotibyLabel('facebook').update()
-		// 	getNotibyLabel('facetime').update()
-		// 	getNotibyLabel('imessage').update()
-		// 	getNotibyLabel('slack').update()
-		// 	getNotibyLabel('twitter').update()
-			console.log(consumedTime);
+		
+			console.log(consumedTime); //track the consumed time
 			
-			// if (popUps[0]){
+			//display all the classes function from the arrays
 				popUps[0].display()
 				popUps[1].display()
 				popUps[2].display()
@@ -274,12 +263,12 @@ function draw() {
 				popUps[5].display()
 				popUps[6].display()
 				popUps[7].display()
-			// }
+			
 				
 				healthTimer(); //health timer function added
 		
 		
-				var nowSecond = second()
+				var nowSecond = second() //now second is the current time
 		
 				if (nowSecond!=lastSecond){
 					secondPassCount++
@@ -310,7 +299,7 @@ function healthTimer(){
 	
 		//healthbar
 	
-		//TEXT 
+		//TEXT and Type Setup
 		textFont(rubikB)
 		fill(150)
 		textSize (15);
@@ -339,15 +328,16 @@ function healthTimer(){
 	
 	
 		//the inside of the timer
-		fill(45,255,111);
-		// rect(50,50,emptyHealth,30);
+		fill(45,255,111); // color of the timer
 		
+		// if the width of the healthbar is more than zero equal to the rect
 		if (emptyHealth >0) {
 			
 		rect(50,50,emptyHealth,30);	
 			
-		}
+		} 
 		
+		// if the healthbar is zero is just white
 		if(emptyHealth = 0){
 			
 		fill(255)
@@ -387,16 +377,22 @@ function beginning(){
 
 	background(245,172,255) //background of mode 1
 
-	image (sillyFace,windowWidth/2-20 ,200) //emoji face
-	textFont (rubikR)
+	image (sillyFace,windowWidth/2-20 ,windowWidth/2-560) //emoji face
+
+	//overall type setup
 	fill(255) //white text
 	textAlign(CENTER) //center the text
+	
+	//Warning
 	textSize(60)
-	text ('WARNING',windowWidth/2+23,windowHeight/2-20)
+	textFont (rubikB)
+	text ('WARNING',windowWidth/2+23,windowHeight/2-20) //placement of the text
+	
+	//instruction
 	textSize(20) //text size
+	textFont(rubikR)
 	textAlign(CENTER) //center the text
-	text ('Do Not Attempt to Click on the Notifications', windowWidth/2+30, windowHeight/2+15)
-	//placement of the text
+	text ('Do Not Attempt to Click on the Notifications', windowWidth/2+30, windowHeight/2+15)//placement of the text
 
 }
 
@@ -404,22 +400,23 @@ function beginning(){
 //custom ending function (mode 3)
 function ending (){
 
-	background(189,228,255) //background of mode 1
+	background(189,228,255) //background of mode 3
 
-	//variable for the text 
+	//local variable for the text 
 	var conclusion = 'could had been spent reading books instead of social media'
-	 image (tongueOut,windowWidth/2-20 ,200) 
-	 	//don't need to repeat the styles as it will cascade down to the next text
+	 image (tongueOut,windowWidth/2-20 ,windowWidth/2-560) 
+
+	//overall type setup
 	 fill(255) //white text
 	 textAlign(CENTER) //center the text
+	
+	//consumed time and minute
 	 textSize(120)
 	 textFont(rubikB)
-	 text (consumedTime+ ' Minutes',windowWidth/2+20,windowHeight/2+10) //text and calulated time
+	 text (consumedTime+ ' Minutes',windowWidth/2+20,windowHeight/2) //text and calulated time
 	 textFont(rubikR)
-		
+	
+	//conclusion variable
 	textSize(20) //text size
-	text (conclusion, windowWidth/2, windowHeight/1.8)
-	//placement of the text
+	text (conclusion, windowWidth/2, windowHeight/1.8) //placement of the text
 }
-
-
