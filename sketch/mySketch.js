@@ -175,7 +175,7 @@ function setup() {
 	created a class by myself from the p5 play library code and translate all the variables 
 	into arrays. Made it easier to control without hardcoding all 8 social media icons
 	*/
-	
+
 	var slide = [19, 12, 8, 6, 4, 4, 4, 3];
 	var iconX = [650, 150, 900, 900, 400, 150, 400, 650]; 
 	var iconY = [200, 450, 450, 200, 200, 200, 450, 450];
@@ -413,6 +413,7 @@ function ending (){
 	//overall type setup
 	 fill(255) //white text
 	 textAlign(CENTER) //center the text
+	 noStroke();
 	
 	//consumed time and minute
 	 textSize(120)
