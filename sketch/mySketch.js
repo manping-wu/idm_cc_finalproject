@@ -170,6 +170,12 @@ function setup() {
 	background(255); //background color
 
 	//arrays for the values for the notifications
+
+	/*I'm proud of this code, because I am getting confident with using p5,
+	created a class by myself from the p5 play library code and translate all the variables 
+	into arrays. Made it easier to control without hardcoding all 8 social media icons
+	*/
+	
 	var slide = [19, 12, 8, 6, 4, 4, 4, 3];
 	var iconX = [650, 150, 900, 900, 400, 150, 400, 650]; 
 	var iconY = [200, 450, 450, 200, 200, 200, 450, 450];
@@ -177,8 +183,6 @@ function setup() {
 	var icon = [email, insta, snapchat, facebook, facetime, imessage, slack, twitter];
 	var unitConsumed = [10, 11, 10, 15, 5, 12, 10, 5];
 	var freq = [65, 80, 50, 220, 65, 20, 70, 90];
-	
-// (labelTemp, iconTemp, slideTemp, iconXTemp, iconYTemp, unitCounsumeTemp)
 
 
 	//for looping the arrays through the class's constructor
